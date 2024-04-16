@@ -1,9 +1,9 @@
-import { BASE_URL } from "../constant/Constant";
+import { BE_HOST } from "../constant/Constant";
 
 
 const LoginAPI = async (username:any,password:any) => {
     console.log(JSON.stringify({username:username,password:password}))
-    const res = await fetch(BASE_URL + "authen/sign-in/password", {
+    const res = await fetch(BE_HOST + "authen/sign-in/password", {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

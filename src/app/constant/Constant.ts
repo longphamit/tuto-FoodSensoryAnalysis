@@ -1,2 +1,2 @@
-export const BASE_URL="http://localhost:8080/tuto-backend/"
+export const BE_HOST='https://api.longpc.site'
 export const ACCESS_TOKEN = 'ACCESS_TOKEN'
