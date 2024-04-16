@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/tuto-admin-fe.iml" filepath="$PROJECT_DIR$/.idea/tuto-admin-fe.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/tuto-FoodSensoryAnalysis.iml" filepath="$PROJECT_DIR$/.idea/tuto-FoodSensoryAnalysis.iml" />
     </modules>
   </component>
 </project>
