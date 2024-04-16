@@ -22,26 +22,21 @@ const Menuitems = [
     id: uniqueId(),
     title: "Quiz",
     icon: IconStack,
-    href: "/pages/quizs",
+    href: "/portal/pages/quizs",
   },
   {
     id: uniqueId(),
     title: "Kho câu hỏi",
     icon: IconQuestionMark,
-    href: "/pages/question-bank",
+    href: "/portal/pages/question-bank",
   },
   {
     id: uniqueId(),
     title: "Tài liệu",
     icon: IconFile,
-    href: "/pages/documents",
+    href: "/portal/pages/documents",
   },
-  {
-    id: uniqueId(),
-    title: "Kỷ niệm",
-    icon: IconMoodHappy,
-    href: "/pages/memories",
-  },
+
   {
     navlabel: true,
     subheader: "Cấu hình",
