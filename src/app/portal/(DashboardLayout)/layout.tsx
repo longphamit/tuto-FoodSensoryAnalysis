@@ -6,6 +6,8 @@ import Sidebar from "@/app/portal/(DashboardLayout)/layout/sidebar/Sidebar";
 import {baselightTheme} from "@/utils/theme/DefaultColors";
 import CssBaseline from "@mui/material/CssBaseline";
 import {ThemeProvider} from "@mui/material/styles";
+import AuthProvider from "@/app/portal/(DashboardLayout)/context/AuthProvider";
+
 
 
 const MainWrapper = styled("div")(() => ({
@@ -28,52 +30,53 @@ interface Props {
 }
 
 
-export default function RootLayout({
-                                       children,
-                                   }: {
-    children: React.ReactNode;
-}) {
+export default function RootLayout({children}: { children: React.ReactNode; }) {
     const [isSidebarOpen, setSidebarOpen] = useState(true);
     const [isMobileSidebarOpen, setMobileSidebarOpen] = useState(false);
     return (
-        <ThemeProvider theme={baselightTheme}>
-            <CssBaseline/>
-            <MainWrapper className="mainwrapper">
-                {/* ------------------------------------------- */}
-                {/* Sidebar */}
-                {/* ------------------------------------------- */}
-                <Sidebar
-                    isSidebarOpen={isSidebarOpen}
-                    isMobileSidebarOpen={isMobileSidebarOpen}
-                    onSidebarClose={() => setMobileSidebarOpen(false)}
-                />
-                {/* ------------------------------------------- */}
-                {/* Main Wrapper */}
-                {/* ------------------------------------------- */}
-                <PageWrapper className="page-wrapper">
-                    {/* ------------------------------------------- */}
-                    {/* Header */}
-                    {/* ------------------------------------------- */}
-                    <Header toggleMobileSidebar={() => setMobileSidebarOpen(true)}/>
-                    {/* ------------------------------------------- */}
-                    {/* PageContent */}
-                    {/* ------------------------------------------- */}
-                    <Container
-                        sx={{
-                            paddingTop: "20px",
-                            maxWidth: "1200px",
-                        }}
-                    >
+            <AuthProvider>
+                <ThemeProvider theme={baselightTheme}>
+                    <CssBaseline/>
+                    <MainWrapper className="mainwrapper">
                         {/* ------------------------------------------- */}
-                        {/* Page Route */}
+                        {/* Sidebar */}
                         {/* ------------------------------------------- */}
-                        <Box sx={{minHeight: "calc(100vh - 170px)"}}>{children}</Box>
+                        <Sidebar
+                            isSidebarOpen={isSidebarOpen}
+                            isMobileSidebarOpen={isMobileSidebarOpen}
+                            onSidebarClose={() => setMobileSidebarOpen(false)}
+                        />
                         {/* ------------------------------------------- */}
-                        {/* End Page */}
+                        {/* Main Wrapper */}
                         {/* ------------------------------------------- */}
-                    </Container>
-                </PageWrapper>
-            </MainWrapper>
-        </ThemeProvider>
+                        <PageWrapper className="page-wrapper">
+                            {/* ------------------------------------------- */}
+                            {/* Header */}
+                            {/* ------------------------------------------- */}
+                            <Header toggleMobileSidebar={() => setMobileSidebarOpen(true)}/>
+                            {/* ------------------------------------------- */}
+                            {/* PageContent */}
+                            {/* ------------------------------------------- */}
+                            <Container
+                                sx={{
+                                    paddingTop: "20px",
+                                    maxWidth: "1200px",
+                                }}
+                            >
+                                {/* ------------------------------------------- */}
+                                {/* Page Route */}
+                                {/* ------------------------------------------- */}
+                                <Box sx={{minHeight: "calc(100vh - 170px)"}}>{children}</Box>
+                                {/* ------------------------------------------- */}
+                                {/* End Page */}
+                                {/* ------------------------------------------- */}
+                            </Container>
+                        </PageWrapper>
+                    </MainWrapper>
+                </ThemeProvider>
+            </AuthProvider>
+
+
+
     );
 }

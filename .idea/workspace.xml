@@ -6,7 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="bc80d296-27e5-4a47-8d68-5c2896d32bac" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/portal/(DashboardLayout)/layout/sidebar/MenuItems.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/portal/(DashboardLayout)/layout/sidebar/MenuItems.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/api/LoginAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/api/LoginAPI.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/portal/(DashboardLayout)/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/portal/(DashboardLayout)/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/service/LoginService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/service/LoginService.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,22 +31,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "prod-danhgiacamquan",
-    "last_opened_file_path": "/Users/longpc/Projects/LongPC/tuto/tuto-FoodSensoryAnalysis/src/app",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "npm.dev.executor": "Debug",
-    "ts.external.directory.path": "/Users/longpc/Projects/LongPC/tuto/tuto-FoodSensoryAnalysis/node_modules/typescript/lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;prod-danhgiacamquan&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/longpc/Projects/LongPC/tuto/tuto-FoodSensoryAnalysis/src/app&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;npm.dev.executor&quot;: &quot;Debug&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/longpc/Projects/LongPC/tuto/tuto-FoodSensoryAnalysis/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/app" />
@@ -72,7 +76,8 @@
       <option name="presentableId" value="Default" />
       <updated>1713247971091</updated>
       <workItem from="1713247972094" duration="1159000" />
-      <workItem from="1713249134174" duration="4373000" />
+      <workItem from="1713249134174" duration="6303000" />
+      <workItem from="1713256277549" duration="3053000" />
     </task>
     <servers />
   </component>

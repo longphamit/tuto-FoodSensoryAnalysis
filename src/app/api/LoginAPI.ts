@@ -2,8 +2,7 @@ import { BE_HOST } from "../constant/Constant";
 
 
 const LoginAPI = async (username:any,password:any) => {
-    console.log(JSON.stringify({username:username,password:password}))
-    const res = await fetch(BE_HOST + "authen/sign-in/password", {
+    const res = await fetch("http://localhost:8099/tuto-backend/" + "authen/sign-in", {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

@@ -1,7 +1,6 @@
 import LoginAPI from "../api/LoginAPI"
 
 const LoginService=async(username:any,password:any)=>{
-    const result=await LoginAPI(username,password)
-    console.log(result)
+    return await LoginAPI(username,password)
 }
 export default LoginService
