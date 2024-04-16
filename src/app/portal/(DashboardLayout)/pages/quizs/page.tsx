@@ -1,7 +1,7 @@
 'use client'
 
 
-import TableBlogs from "@/app/(DashboardLayout)/components/blog/TableBlogs";
+import TableBlogs from "@/app/portal/(DashboardLayout)/components/blog/TableBlogs";
 
 const Blogs= ()=>{
     return (<>

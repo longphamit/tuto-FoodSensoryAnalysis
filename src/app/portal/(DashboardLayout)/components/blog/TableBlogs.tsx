@@ -10,7 +10,7 @@ import {
     Input,
     TextField
 } from '@mui/material';
-import DashboardCard from '@/app/(DashboardLayout)//components/shared/DashboardCard';
+import DashboardCard from '@/app/portal/(DashboardLayout)//components/shared/DashboardCard';
 
 const products = [
     {

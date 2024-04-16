@@ -6,15 +6,44 @@
   <component name="ChangeListManager">
     <list default="true" id="bc80d296-27e5-4a47-8d68-5c2896d32bac" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(DashboardLayout)/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(DashboardLayout)/layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(DashboardLayout)/layout/sidebar/MenuItems.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(DashboardLayout)/layout/sidebar/MenuItems.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(DashboardLayout)/layout/sidebar/Sidebar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(DashboardLayout)/layout/sidebar/Sidebar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(DashboardLayout)/pages/quizs/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(DashboardLayout)/pages/quizs/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/api/LoginAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/api/LoginAPI.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/constant/Constant.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/constant/Constant.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(DashboardLayout)/components/blog/TableBlogs.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/portal/(DashboardLayout)/components/blog/TableBlogs.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(DashboardLayout)/components/container/PageContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/portal/(DashboardLayout)/components/container/PageContainer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(DashboardLayout)/components/dashboard/Blog.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/portal/(DashboardLayout)/components/dashboard/Blog.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(DashboardLayout)/components/dashboard/MonthlyEarnings.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/portal/(DashboardLayout)/components/dashboard/MonthlyEarnings.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(DashboardLayout)/components/dashboard/ProductPerformance.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/portal/(DashboardLayout)/components/dashboard/ProductPerformance.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(DashboardLayout)/components/dashboard/RecentTransactions.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/portal/(DashboardLayout)/components/dashboard/RecentTransactions.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(DashboardLayout)/components/dashboard/SalesOverview.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/portal/(DashboardLayout)/components/dashboard/SalesOverview.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(DashboardLayout)/components/dashboard/YearlyBreakup.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/portal/(DashboardLayout)/components/dashboard/YearlyBreakup.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(DashboardLayout)/components/forms/theme-elements/CustomTextField.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/portal/(DashboardLayout)/components/forms/theme-elements/CustomTextField.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(DashboardLayout)/components/shared/BlankCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/portal/(DashboardLayout)/components/shared/BlankCard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(DashboardLayout)/components/shared/DashboardCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/portal/(DashboardLayout)/components/shared/DashboardCard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(DashboardLayout)/icons/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/portal/(DashboardLayout)/icons/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(DashboardLayout)/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/portal/(DashboardLayout)/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(DashboardLayout)/layout/header/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/portal/(DashboardLayout)/layout/header/Header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(DashboardLayout)/layout/header/Profile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/portal/(DashboardLayout)/layout/header/Profile.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(DashboardLayout)/layout/header/data.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/portal/(DashboardLayout)/layout/header/data.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(DashboardLayout)/layout/shared/logo/Logo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/portal/(DashboardLayout)/layout/shared/logo/Logo.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(DashboardLayout)/layout/sidebar/MenuItems.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/portal/(DashboardLayout)/layout/sidebar/MenuItems.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(DashboardLayout)/layout/sidebar/NavGroup/NavGroup.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/portal/(DashboardLayout)/layout/sidebar/NavGroup/NavGroup.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(DashboardLayout)/layout/sidebar/NavItem/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/portal/(DashboardLayout)/layout/sidebar/NavItem/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(DashboardLayout)/layout/sidebar/Sidebar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/portal/(DashboardLayout)/layout/sidebar/Sidebar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(DashboardLayout)/layout/sidebar/SidebarItems.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/portal/(DashboardLayout)/layout/sidebar/SidebarItems.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(DashboardLayout)/layout/sidebar/Updrade.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/portal/(DashboardLayout)/layout/sidebar/Updrade.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(DashboardLayout)/loading.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/portal/(DashboardLayout)/loading.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(DashboardLayout)/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/portal/(DashboardLayout)/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(DashboardLayout)/pages/blogs/create/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/portal/(DashboardLayout)/pages/blogs/create/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(DashboardLayout)/pages/blogs/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/portal/(DashboardLayout)/pages/blogs/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(DashboardLayout)/pages/documents/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/portal/(DashboardLayout)/pages/documents/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(DashboardLayout)/pages/question-bank/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/portal/(DashboardLayout)/pages/question-bank/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(DashboardLayout)/pages/quizs/create/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/portal/(DashboardLayout)/pages/quizs/create/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(DashboardLayout)/pages/quizs/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/portal/(DashboardLayout)/pages/quizs/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(DashboardLayout)/sample-page/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/portal/(DashboardLayout)/sample-page/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(DashboardLayout)/utilities/shadow/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/portal/(DashboardLayout)/utilities/shadow/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(DashboardLayout)/utilities/typography/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/portal/(DashboardLayout)/utilities/typography/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/authentication/auth/AuthLogin.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/authentication/auth/AuthLogin.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/authentication/auth/AuthRegister.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/authentication/auth/AuthRegister.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/authentication/login/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/authentication/login/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/authentication/register/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/authentication/register/page.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,6 +84,9 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/app" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/app/portal" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="dev" type="js.build_tools.npm" nameIsGenerated="true">
@@ -77,7 +109,7 @@
       <option name="presentableId" value="Default" />
       <updated>1713247971091</updated>
       <workItem from="1713247972094" duration="1159000" />
-      <workItem from="1713249134174" duration="2847000" />
+      <workItem from="1713249134174" duration="3881000" />
     </task>
     <servers />
   </component>

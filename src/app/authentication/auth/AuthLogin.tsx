@@ -13,7 +13,7 @@ import {
 } from "@mui/material";
 import Link from "next/link";
 
-import CustomTextField from "@/app/(DashboardLayout)/components/forms/theme-elements/CustomTextField";
+import CustomTextField from "@/app/portal/(DashboardLayout)/components/forms/theme-elements/CustomTextField";
 import LoginService from "@/app/service/LoginService";
 
 interface loginType {

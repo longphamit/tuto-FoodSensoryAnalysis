@@ -1,13 +1,13 @@
 'use client'
 import { Grid, Box } from '@mui/material';
-import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
+import PageContainer from '@/app/portal/(DashboardLayout)/components/container/PageContainer';
 // components
-import SalesOverview from '@/app/(DashboardLayout)/components/dashboard/SalesOverview';
-import YearlyBreakup from '@/app/(DashboardLayout)/components/dashboard/YearlyBreakup';
-import RecentTransactions from '@/app/(DashboardLayout)/components/dashboard/RecentTransactions';
-import ProductPerformance from '@/app/(DashboardLayout)/components/dashboard/ProductPerformance';
-import Blog from '@/app/(DashboardLayout)/components/dashboard/Blog';
-import MonthlyEarnings from '@/app/(DashboardLayout)/components/dashboard/MonthlyEarnings';
+import SalesOverview from '@/app/portal/(DashboardLayout)/components/dashboard/SalesOverview';
+import YearlyBreakup from '@/app/portal/(DashboardLayout)/components/dashboard/YearlyBreakup';
+import RecentTransactions from '@/app/portal/(DashboardLayout)/components/dashboard/RecentTransactions';
+import ProductPerformance from '@/app/portal/(DashboardLayout)/components/dashboard/ProductPerformance';
+import Blog from '@/app/portal/(DashboardLayout)/components/dashboard/Blog';
+import MonthlyEarnings from '@/app/portal/(DashboardLayout)/components/dashboard/MonthlyEarnings';
 
 const Dashboard = () => {
   return (

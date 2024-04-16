@@ -1,8 +1,8 @@
 "use client";
 import {styled, Container, Box} from "@mui/material";
 import React, {useState} from "react";
-import Header from "@/app/(DashboardLayout)/layout/header/Header";
-import Sidebar from "@/app/(DashboardLayout)/layout/sidebar/Sidebar";
+import Header from "@/app/portal/(DashboardLayout)/layout/header/Header";
+import Sidebar from "@/app/portal/(DashboardLayout)/layout/sidebar/Sidebar";
 import {baselightTheme} from "@/utils/theme/DefaultColors";
 import CssBaseline from "@mui/material/CssBaseline";
 import {ThemeProvider} from "@mui/material/styles";
