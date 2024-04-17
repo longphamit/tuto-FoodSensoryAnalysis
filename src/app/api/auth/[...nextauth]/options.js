@@ -1,15 +1,14 @@
-import type {NextAuthOptions} from 'next-auth'
 import CredentialsProvider from 'next-auth/providers/credentials'
 import LoginService from "@/app/service/LoginService";
 
-export const options: NextAuthOptions = {
+export const options = {
     secret: "abc",
     session: {
         strategy: "jwt",
     },
     pages: {
         signIn: "/auth/signin",
-        signOut:"/portal/signout"
+        signOut: "/portal/signout"
     },
     providers: [
         CredentialsProvider({
@@ -37,13 +36,23 @@ export const options: NextAuthOptions = {
         })
     ],
     callbacks: {
-        async jwt({token,user}) {
-            return {...token,...user}
+        async jwt({token, user}) {
+            // user is only available the first time a user signs in authorized
+            if (user) {
+                return {
+                    ...token,
+                    user:user,
+                    accessToken: user.token,
+                };
+            }
+            return token;
         },
-        async session({session, token, user}) {
-            session.user=token;
+        async session({session, token}) {
+            session.accessToken = token.accessToken;
+            session.user=token.user
             return session;
-        }
+        },
+
     }
 
 }

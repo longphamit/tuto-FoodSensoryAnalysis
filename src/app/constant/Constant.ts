@@ -1,2 +1,2 @@
-export const BE_HOST='https://api.longpc.site'
+export const BE_HOST='http://localhost:8080'
 export const ACCESS_TOKEN = 'ACCESS_TOKEN'

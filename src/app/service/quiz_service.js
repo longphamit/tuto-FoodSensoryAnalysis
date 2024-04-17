@@ -1,4 +1,4 @@
-import {GET} from "../api/fetch_data";
+import {GET, GET_AUTH} from "../api/fetch_data";
 import {BE_HOST} from "../constant/Constant";
 
 export const getQuizSubmitById = async (id) => {
@@ -9,6 +9,12 @@ export const getQuizSubmitResultById = async (id) => {
 }
 export const getQuizById = async (id) => {
     return (await fetch(`${BE_HOST}/gateway/quiz/${id}`)).json()
+}
+export const getQuizs = async () => {
+    return (await GET_AUTH(`http://localhost:8099/tuto-backend/quiz-api/quiz`))
+}
+export const getToken = async () => {
+    return (await GET_AUTH(`http://localhost:8099/tuto-backend/authen/token`))
 }
 export const getQuizQuestionTemplateById = async (id,questionTemplateId) => {
     return (await fetch(`${BE_HOST}/gateway/quiz/${id}/question-template/${questionTemplateId}`)).json()
