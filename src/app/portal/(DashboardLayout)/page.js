@@ -8,6 +8,8 @@ import RecentTransactions from '@/app/portal/(DashboardLayout)/components/dashbo
 import ProductPerformance from '@/app/portal/(DashboardLayout)/components/dashboard/ProductPerformance';
 import Blog from '@/app/portal/(DashboardLayout)/components/dashboard/Blog';
 import MonthlyEarnings from '@/app/portal/(DashboardLayout)/components/dashboard/MonthlyEarnings';
+import {useSession} from "next-auth/react";
+import {useEffect} from "react";
 
 const Dashboard = () => {
   return (
