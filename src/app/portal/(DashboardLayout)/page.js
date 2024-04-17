@@ -12,8 +12,13 @@ import {useSession} from "next-auth/react";
 import {useEffect} from "react";
 
 const Dashboard = () => {
+  const session = useSession()
+  useEffect(() => {
+    console.log(session)
+  }, []);
   return (
     <PageContainer title="Dashboard" description="this is Dashboard">
+
       <Box>
         <Grid container spacing={3}>
           <Grid item xs={12} lg={8}>

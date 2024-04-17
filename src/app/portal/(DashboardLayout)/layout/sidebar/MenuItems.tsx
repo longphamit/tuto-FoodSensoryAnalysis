@@ -59,9 +59,9 @@ const Menuitems = [
   },
   {
     id: uniqueId(),
-    title: "Login",
+    title: "Logout",
     icon: IconLogin,
-    href: "/authentication/login",
+    href: "/portal/signout",
   },
   {
     id: uniqueId(),

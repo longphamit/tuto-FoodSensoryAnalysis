@@ -1,13 +1,15 @@
-import type { NextAuthOptions } from 'next-auth'
+import type {NextAuthOptions} from 'next-auth'
 import CredentialsProvider from 'next-auth/providers/credentials'
 import LoginService from "@/app/service/LoginService";
 
 export const options: NextAuthOptions = {
-    session:{
-        strategy:"jwt"
+    secret: "abc",
+    session: {
+        strategy: "jwt",
     },
     pages: {
         signIn: "/auth/signin",
+        signOut:"/portal/signout"
     },
     providers: [
         CredentialsProvider({
@@ -25,11 +27,23 @@ export const options: NextAuthOptions = {
                 }
             },
             async authorize(credentials) {
-                const user = await LoginService(credentials?.username,credentials?.password);
-                console.log(user)
-                return user;
+                try {
+                    return await LoginService(credentials?.username, credentials?.password);
+                } catch (e) {
+                    throw e;
+                }
+
             }
         })
     ],
+    callbacks: {
+        async jwt({token,user}) {
+            return {...token,...user}
+        },
+        async session({session, token, user}) {
+            session.user=token;
+            return session;
+        }
+    }
 
 }

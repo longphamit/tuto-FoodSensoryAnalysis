@@ -9,7 +9,6 @@ import {ThemeProvider} from "@mui/material/styles";
 import AuthProvider from "@/app/portal/(DashboardLayout)/context/AuthProvider";
 
 
-
 const MainWrapper = styled("div")(() => ({
     display: "flex",
     minHeight: "100vh",
@@ -34,49 +33,44 @@ export default function RootLayout({children}: { children: React.ReactNode; }) {
     const [isSidebarOpen, setSidebarOpen] = useState(true);
     const [isMobileSidebarOpen, setMobileSidebarOpen] = useState(false);
     return (
-            <AuthProvider>
-                <ThemeProvider theme={baselightTheme}>
-                    <CssBaseline/>
-                    <MainWrapper className="mainwrapper">
+        <ThemeProvider theme={baselightTheme}>
+            <CssBaseline/>
+            <MainWrapper className="mainwrapper">
+                {/* ------------------------------------------- */}
+                {/* Sidebar */}
+                {/* ------------------------------------------- */}
+                <Sidebar
+                    isSidebarOpen={isSidebarOpen}
+                    isMobileSidebarOpen={isMobileSidebarOpen}
+                    onSidebarClose={() => setMobileSidebarOpen(false)}
+                />
+                {/* ------------------------------------------- */}
+                {/* Main Wrapper */}
+                {/* ------------------------------------------- */}
+                <PageWrapper className="page-wrapper">
+                    {/* ------------------------------------------- */}
+                    {/* Header */}
+                    {/* ------------------------------------------- */}
+                    <Header toggleMobileSidebar={() => setMobileSidebarOpen(true)}/>
+                    {/* ------------------------------------------- */}
+                    {/* PageContent */}
+                    {/* ------------------------------------------- */}
+                    <Container
+                        sx={{
+                            paddingTop: "20px",
+                            maxWidth: "1200px",
+                        }}
+                    >
                         {/* ------------------------------------------- */}
-                        {/* Sidebar */}
+                        {/* Page Route */}
                         {/* ------------------------------------------- */}
-                        <Sidebar
-                            isSidebarOpen={isSidebarOpen}
-                            isMobileSidebarOpen={isMobileSidebarOpen}
-                            onSidebarClose={() => setMobileSidebarOpen(false)}
-                        />
+                        <Box sx={{minHeight: "calc(100vh - 170px)"}}>{children}</Box>
                         {/* ------------------------------------------- */}
-                        {/* Main Wrapper */}
+                        {/* End Page */}
                         {/* ------------------------------------------- */}
-                        <PageWrapper className="page-wrapper">
-                            {/* ------------------------------------------- */}
-                            {/* Header */}
-                            {/* ------------------------------------------- */}
-                            <Header toggleMobileSidebar={() => setMobileSidebarOpen(true)}/>
-                            {/* ------------------------------------------- */}
-                            {/* PageContent */}
-                            {/* ------------------------------------------- */}
-                            <Container
-                                sx={{
-                                    paddingTop: "20px",
-                                    maxWidth: "1200px",
-                                }}
-                            >
-                                {/* ------------------------------------------- */}
-                                {/* Page Route */}
-                                {/* ------------------------------------------- */}
-                                <Box sx={{minHeight: "calc(100vh - 170px)"}}>{children}</Box>
-                                {/* ------------------------------------------- */}
-                                {/* End Page */}
-                                {/* ------------------------------------------- */}
-                            </Container>
-                        </PageWrapper>
-                    </MainWrapper>
-                </ThemeProvider>
-            </AuthProvider>
-
-
-
+                    </Container>
+                </PageWrapper>
+            </MainWrapper>
+        </ThemeProvider>
     );
 }
