@@ -1,0 +1,17 @@
+version: '3.7'
+services:
+  # Next.js service
+  nextjs:
+    image: longphamjustdoit/tuto-foodsensoryanalysis
+    container_name: tuto-foodsensoryanalysis
+    # Mount your application code to the container
+    volumes:
+      - .:/app
+    # Expose the port Next.js will run on
+    ports:
+      - "3002:3002"
+    networks:
+      - longpc-network
+networks:
+  longpc-network:
+    external: true

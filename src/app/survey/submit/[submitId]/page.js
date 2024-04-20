@@ -5,7 +5,7 @@ import { redirect, useRouter } from "next/navigation";
 import { useEffect } from "react";
 import { useState } from "react";
 import { Spinner } from '@chakra-ui/react'
-import {getQuizById, getQuizQuestionTemplateById, getQuizSubmitById} from "../../../service/quiz_service";
+import {getQuizById, getQuizQuestionTemplateById, getQuizSubmitById, submitQuiz} from "../../../service/quiz_service";
 export default function SurveySubmit({ params }) {
   const [quizSubmit, setQuizSubmit] = useState();
   const [isLoading, setLoading] = useState(true)

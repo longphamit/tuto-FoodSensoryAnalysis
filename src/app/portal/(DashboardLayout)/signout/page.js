@@ -1,17 +1,16 @@
 'use client'
 
-import {NextPage} from "next";
-import {getSession, signIn, signOut} from "next-auth/react";
-import {FormEventHandler, useEffect, useState} from "react";
-import {Box, Image, Center, Flex, Input, Grid, Stack, GridItem, Card} from "@chakra-ui/react";
+
+import { signOut} from "next-auth/react";
+import { useState} from "react";
+import { Center, Flex, Stack, Card} from "@chakra-ui/react";
 import {useRouter} from 'next/navigation';
 import { Spinner } from '@chakra-ui/react'
 import {Button} from "@mui/material";
 
 const SignIn = (session) => {
-    const {replace,push} = useRouter();
+
     const [loading, setLoading] = useState(false)
-    const [userInfo, setUserInfo] = useState({email: "", password: ""});
     const handleSubmit = async () => {
         setLoading(true)
         const response = await signOut();

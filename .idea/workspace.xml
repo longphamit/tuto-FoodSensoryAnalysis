@@ -6,15 +6,29 @@
   <component name="ChangeListManager">
     <list default="true" id="bc80d296-27e5-4a47-8d68-5c2896d32bac" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/api/auth/[...nextauth]/options.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/api/auth/[...nextauth]/options.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/api/auth/[...nextauth]/route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/api/auth/[...nextauth]/route.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/next.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/api/LoginAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/api/LoginAPI.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/api/fetch_data.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/api/fetch_data.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/constant/Constant.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/constant/Constant.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/portal/(DashboardLayout)/layout/sidebar/MenuItems.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/portal/(DashboardLayout)/layout/sidebar/MenuItems.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/portal/(DashboardLayout)/components/blog/TableBlogs.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/portal/(DashboardLayout)/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/portal/(DashboardLayout)/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/portal/(DashboardLayout)/layout/header/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/portal/(DashboardLayout)/layout/header/Header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/portal/(DashboardLayout)/layout/header/Profile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/portal/(DashboardLayout)/layout/header/Profile.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/portal/(DashboardLayout)/layout/sidebar/Sidebar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/portal/(DashboardLayout)/layout/sidebar/Sidebar.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/portal/(DashboardLayout)/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/portal/(DashboardLayout)/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/portal/(DashboardLayout)/pages/quizs/create/page.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/portal/(DashboardLayout)/pages/quizs/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/portal/(DashboardLayout)/pages/quizs/page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/portal/(DashboardLayout)/pages/blogs/create/page.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/portal/(DashboardLayout)/pages/blogs/page.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/portal/(DashboardLayout)/pages/documents/page.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/portal/(DashboardLayout)/pages/question-bank/page.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/portal/(DashboardLayout)/pages/quizs/detail/[id]/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/portal/(DashboardLayout)/pages/quizs/detail/[id]/page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/portal/(DashboardLayout)/pages/quizs/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/portal/(DashboardLayout)/pages/quizs/page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/portal/(DashboardLayout)/sample-page/page.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/portal/(DashboardLayout)/signout/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/portal/(DashboardLayout)/signout/page.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/service/quiz_service.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/service/quiz_service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/survey/submit/[submitId]/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/survey/submit/[submitId]/page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/theme/DefaultColors.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/theme/DefaultColors.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,35 +49,36 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;prod-danhgiacamquan&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/longpc/Projects/LongPC/tuto/tuto-FoodSensoryAnalysis/src/app/portal/(DashboardLayout)&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;npm.dev.executor&quot;: &quot;Debug&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Users/longpc/Projects/LongPC/tuto/tuto-FoodSensoryAnalysis/node_modules/typescript/lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "prod-danhgiacamquan",
+    "last_opened_file_path": "/Users/longpc/Projects/LongPC/tuto/tuto-FoodSensoryAnalysis",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "npm.dev.executor": "Debug",
+    "ts.external.directory.path": "/Users/longpc/Projects/LongPC/tuto/tuto-FoodSensoryAnalysis/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src/app/portal/(DashboardLayout)" />
       <recent name="$PROJECT_DIR$/public/images" />
       <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/src/app/portal" />
-      <recent name="$PROJECT_DIR$/src/app" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/app/portal/(DashboardLayout)/pages/quizs/result/survey" />
+      <recent name="$PROJECT_DIR$/src/app/portal/(DashboardLayout)/pages/quizs/result" />
+      <recent name="$PROJECT_DIR$/src/app/portal/(DashboardLayout)/pages/quizs/result/survey-pair" />
       <recent name="$PROJECT_DIR$/src/app/portal/(DashboardLayout)/pages/quizs/detail/[id]" />
       <recent name="$PROJECT_DIR$/src/app/portal/(DashboardLayout)/pages/quizs/detail" />
-      <recent name="$PROJECT_DIR$/src/app/api/auth/[...nextauth]" />
-      <recent name="$PROJECT_DIR$/src/app/portal" />
     </key>
   </component>
   <component name="RunManager">
@@ -90,7 +105,10 @@
       <workItem from="1713249134174" duration="6303000" />
       <workItem from="1713256277549" duration="3053000" />
       <workItem from="1713342110942" duration="1150000" />
-      <workItem from="1713343467633" duration="4293000" />
+      <workItem from="1713343467633" duration="13870000" />
+      <workItem from="1713371577565" duration="35305000" />
+      <workItem from="1713548944001" duration="113000" />
+      <workItem from="1713549279772" duration="5390000" />
     </task>
     <servers />
   </component>

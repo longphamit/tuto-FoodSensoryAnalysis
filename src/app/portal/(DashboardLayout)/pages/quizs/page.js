@@ -13,35 +13,42 @@ import {
     Typography
 } from "@mui/material";
 import {useEffect, useState} from "react";
-import {getQuizs} from "../../../../service/quiz_service";
+import {getQuizs, getQuizsCreatedBy} from "../../../../service/quiz_service";
 import moment from "moment";
 import {useSession} from "next-auth/react";
 import {IconEye} from "@tabler/icons-react";
 import {ArrowRight} from "@mui/icons-material";
 import {useRouter} from "next/navigation";
+import SplitButtonCreateQuiz from "../../components/SplitButtonCreateQuiz";
 
 const Quizs = () => {
     const [quizs, setQuizs] = useState([])
+    const [loading,setLoading]=useState(false)
     const session = useSession()
     const router = useRouter();
     const getQuizList = async () => {
-        const res = await getQuizs()
+        setLoading(true)
+        const res = await getQuizsCreatedBy()
         console.log(res)
         if (res) {
             setQuizs(res.reverse())
         }
+        setLoading(false)
     }
     const handleDetailPage = (id) => {
-       window.open(`/portal/pages/detail/${id}`,"_blank",'noopener,noreferrer')
+       router.push(`/portal/pages/quizs/detail/${id}`)
     }
     useEffect(() => {
         console.log(session)
         getQuizList()
     }, []);
     return (<>
-        <DashboardCard title="Danh sách bài khảo sát" action={<Button variant="contained">Tạo mới</Button>}>
+        <DashboardCard title="Danh sách bài khảo sát" action={<SplitButtonCreateQuiz/>}>
             <Box sx={{overflow: 'auto', width: {xs: '280px', sm: 'auto'}}}>
-                {!quizs?<CircularProgress />: <Table
+                {
+                    loading?<CircularProgress/>:<></>
+                }
+                {quizs.length>0? <Table
                     aria-label="simple table"
                     sx={{
                         whiteSpace: "nowrap",
@@ -88,7 +95,7 @@ const Quizs = () => {
                                     </Typography>
                                 </TableCell>
                                 <TableCell>
-                                    <Typography>{moment(quiz.createdTime).format("dd/MM/yyyy")}</Typography>
+                                    <Typography>{moment(quiz.createdTime).format("DD/MM/YYYY")}</Typography>
                                 </TableCell>
                                 <TableCell>
                                     <Button
@@ -98,7 +105,7 @@ const Quizs = () => {
                             </TableRow>
                         ))}
                     </TableBody>
-                </Table>}
+                </Table>:<></>}
             </Box>
         </DashboardCard>
     </>)

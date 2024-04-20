@@ -16,9 +16,44 @@ export const GET = async (url) => {
 export const GET_AUTH = async (url) => {
     const session = await getSession();
     const token = session.user.token;
+    const partyId=session.user.partyId;
     const response = await fetch(url, {
         headers:{
-            ...(session && { Authorization: `Bearer ${token}` }),
+            ...(session && { Authorization: `Bearer ${token}`,
+                'PartyId':partyId }),
+        }
+
+    });
+    return response.json(); // assuming response is JSON
+}
+export const PUT_AUTH = async (url,data) => {
+    const session = await getSession();
+    const token = session.user.token;
+    const partyId=session.user.partyId;
+    const response = await fetch(url, {
+        method:"PUT",
+        body: data,
+        headers:{
+            ...(session && { Authorization: `Bearer ${token}`,
+                'PartyId':partyId,
+                'Accept': 'application/json',
+                'Content-Type': 'application/json' }),
+        }
+
+    });
+}
+export const POST_AUTH = async (url,data) => {
+    const session = await getSession();
+    const token = session.user.token;
+    const partyId=session.user.partyId;
+    const response = await fetch(url, {
+        method:"POST",
+        body: data,
+        headers:{
+            ...(session && { Authorization: `Bearer ${token}`,
+                'PartyId':partyId,
+                'Accept': 'application/json',
+                'Content-Type': 'application/json' }),
         }
 
     });

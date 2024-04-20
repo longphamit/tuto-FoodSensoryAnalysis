@@ -20,78 +20,82 @@ const Sidebar = ({
 
   if (lgUp) {
     return (
-      <Box
-        sx={{
-          width: sidebarWidth,
-          flexShrink: 0,
-        }}
-      >
-        {/* ------------------------------------------- */}
-        {/* Sidebar for desktop */}
-        {/* ------------------------------------------- */}
-        <Drawer
-          anchor="left"
-          open={isSidebarOpen}
-          variant="permanent"
-          PaperProps={{
-            sx: {
+      <div>
+        <Box
+            sx={{
               width: sidebarWidth,
-              boxSizing: "border-box",
-            },
-          }}
+              flexShrink: 0,
+            }}
         >
           {/* ------------------------------------------- */}
-          {/* Sidebar Box */}
+          {/* Sidebar for desktop */}
           {/* ------------------------------------------- */}
-          <Box
-            sx={{
-              height: "100%",
-            }}
+          <Drawer
+              anchor="left"
+              open={isSidebarOpen}
+              variant="permanent"
+              PaperProps={{
+                sx: {
+                  width: sidebarWidth,
+                  boxSizing: "border-box",
+                },
+              }}
           >
             {/* ------------------------------------------- */}
-            {/* Logo */}
+            {/* Sidebar Box */}
             {/* ------------------------------------------- */}
-            {/*<Box px={3}>*/}
-            {/*  <Logo />*/}
-            {/*</Box>*/}
-            <Box>
+            <Box
+                sx={{
+                  height: "100%",
+                }}
+            >
               {/* ------------------------------------------- */}
-              {/* Sidebar Items */}
+              {/* Logo */}
               {/* ------------------------------------------- */}
-              <SidebarItems />
-              {/*<Upgrade />*/}
+              {/*<Box px={3}>*/}
+              {/*  <Logo />*/}
+              {/*</Box>*/}
+              <Box>
+                {/* ------------------------------------------- */}
+                {/* Sidebar Items */}
+                {/* ------------------------------------------- */}
+                <SidebarItems />
+                {/*<Upgrade />*/}
+              </Box>
             </Box>
-          </Box>
-        </Drawer>
-      </Box>
+          </Drawer>
+        </Box>
+      </div>
     );
   }
 
   return (
-    <Drawer
-      anchor="left"
-      open={isMobileSidebarOpen}
-      onClose={onSidebarClose}
-      variant="temporary"
-      PaperProps={{
-        sx: {
-          width: sidebarWidth,
-          boxShadow: (theme) => theme.shadows[8],
-        },
-      }}
-    >
-      {/* ------------------------------------------- */}
-      {/* Logo */}
-      {/* ------------------------------------------- */}
-      <Box px={2}>
-        <Logo />
-      </Box>
-      {/* ------------------------------------------- */}
-      {/* Sidebar For Mobile */}
-      {/* ------------------------------------------- */}
-      <SidebarItems />
-      <Upgrade />
-    </Drawer>
+    <div>
+      <Drawer
+          anchor="left"
+          open={isMobileSidebarOpen}
+          onClose={onSidebarClose}
+          variant="temporary"
+          PaperProps={{
+            sx: {
+              width: sidebarWidth,
+              boxShadow: (theme) => theme.shadows[8],
+            },
+          }}
+      >
+        {/* ------------------------------------------- */}
+        {/* Logo */}
+        {/* ------------------------------------------- */}
+        {/*<Box px={2}>*/}
+        {/*  <Logo />*/}
+        {/*</Box>*/}
+        {/* ------------------------------------------- */}
+        {/* Sidebar For Mobile */}
+        {/* ------------------------------------------- */}
+        <SidebarItems />
+        {/*<Upgrade />*/}
+      </Drawer>
+    </div>
   );
 };
 
