@@ -24,6 +24,8 @@ const SignUp = (session) => {
     const [userInfo, setUserInfo] = useState({username: "", password: ""});
     const [showPassword, setShowPassword] = useState(false);
 
+    
+
     useEffect(() => {
 
     }, []);
@@ -70,7 +72,7 @@ const SignUp = (session) => {
                             </InputGroup>
                         </FormControl>
                         <FormControl id="password" isRequired>
-                            <FormLabel>Password</FormLabel>
+                            <FormLabel>Re-Password</FormLabel>
                             <InputGroup>
                                 <Input type={showPassword ? 'text' : 'password'} />
                                 <InputRightElement h={'full'}>
@@ -98,7 +100,9 @@ const SignUp = (session) => {
                         </Stack>
                         <Stack pt={6}>
                             <Text align={'center'}>
-                                Already a user? <Link color={'blue.400'}>Login</Link>
+                                Already a user? <Link
+                                href={"/auth/signin"}
+                                color={'blue.400'}>Login</Link>
                             </Text>
                         </Stack>
                     </Stack>

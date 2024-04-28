@@ -7,11 +7,10 @@
     <list default="true" id="bc80d296-27e5-4a47-8d68-5c2896d32bac" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/next.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/api/LoginAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/api/LoginAPI.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/api/auth/[...nextauth]/options.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/api/auth/[...nextauth]/options.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/auth/signin/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/auth/signin/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/service/LoginService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/service/LoginService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/auth/signup/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/auth/signup/page.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

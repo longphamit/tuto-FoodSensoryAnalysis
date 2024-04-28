@@ -47,7 +47,7 @@ const SignIn = (session) => {
         console.log(session)
     }
     const handleSignUp = async () => {
-
+        push("/auth/signup")
     }
     useEffect(() => {
         getSessionClient()

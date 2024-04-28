@@ -1,5 +1,6 @@
 import CredentialsProvider from 'next-auth/providers/credentials'
-import LoginService from "@/app/service/LoginService";
+import LoginService from "../../../service/LoginService";
+
 
 export const options = {
     secret: "abc",

@@ -2,6 +2,7 @@ import { BE_GATEWAY } from "../constant/Constant";
 
 
 const LoginAPI = async (username:any,password:any) => {
+    console.log("call api")
     const res = await fetch(`${BE_GATEWAY}/tuto-backend/` + "authen/sign-in", {
         method: 'POST',
         headers: {
