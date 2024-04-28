@@ -1,4 +1,4 @@
-import { BE_HOST,BE_GATEWAY } from "../constant/Constant";
+import { BE_GATEWAY } from "../constant/Constant";
 
 
 const LoginAPI = async (username:any,password:any) => {

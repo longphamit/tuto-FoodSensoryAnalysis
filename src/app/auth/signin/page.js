@@ -5,8 +5,9 @@ import {getSession, signIn} from "next-auth/react";
 import {FormEventHandler, useEffect, useState} from "react";
 import {Box, Button, Image, Center, Flex, Input, Grid, Stack, GridItem, Card} from "@chakra-ui/react";
 import {useRouter} from 'next/navigation';
-import { Spinner } from '@chakra-ui/react'
-import { useToast } from '@chakra-ui/react'
+import {Spinner} from '@chakra-ui/react'
+import {useToast} from '@chakra-ui/react'
+
 const SignIn = (session) => {
     const {push} = useRouter();
     const toast = useToast()
@@ -23,16 +24,16 @@ const SignIn = (session) => {
         setLoading(false)
         if (response.ok) {
             toast({
-                position:"top-right",
+                position: "top-right",
                 title: 'Đăng nhập thành công',
                 status: 'success',
                 duration: 9000,
                 isClosable: true,
             })
             push('/portal');
-        }else{
+        } else {
             toast({
-                position:"top-right",
+                position: "top-right",
                 title: 'Thông tin đăng nhập không đúng',
                 description: "Vui lòng thử lại",
                 status: 'error',
@@ -41,9 +42,12 @@ const SignIn = (session) => {
             })
         }
     };
-    const getSessionClient =async()=>{
+    const getSessionClient = async () => {
         const session = await getSession()
         console.log(session)
+    }
+    const handleSignUp = async () => {
+
     }
     useEffect(() => {
         getSessionClient()
@@ -70,7 +74,7 @@ const SignIn = (session) => {
                                     <div>
                                         <Center>
                                             {
-                                                loading?<Spinner/>:<></>
+                                                loading ? <Spinner/> : <></>
                                             }
                                         </Center>
                                         <Input
@@ -96,6 +100,12 @@ const SignIn = (session) => {
                                         <Button
                                             style={{width: "100%"}}
                                             colorScheme='teal' onClick={() => handleSubmit()}>Đăng nhập</Button>
+                                    </div>
+
+                                    <div>
+                                        <Button
+                                            style={{width: "100%"}}
+                                            onClick={() => handleSignUp()}>Đăng ký</Button>
                                     </div>
                                 </Stack>
                             </Card>
