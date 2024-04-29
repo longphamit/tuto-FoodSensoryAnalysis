@@ -6,7 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="bc80d296-27e5-4a47-8d68-5c2896d32bac" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/next.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/api/SignUpAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/api/SignUpAPI.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/auth/signup/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/auth/signup/page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/constant/Constant.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/constant/Constant.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -21,28 +21,52 @@ import {useRouter} from 'next/navigation';
 import {useToast} from '@chakra-ui/react'
 import {Field, Form, Formik} from "formik";
 import SignUpAPI from "../../api/SignUpAPI";
+import {values} from "lodash";
 
 const SignUp = (session) => {
     const [userInfo, setUserInfo] = useState({username: "", email: "", password: "", rePassword: ""});
     const [showPassword, setShowPassword] = useState(false);
+    const [password, setPassword] = useState("")
     const toast = useToast()
     const {push} = useRouter();
     const handleRegisSubmit = async (values, actions) => {
-        const response = await SignUpAPI(values.username, values.password, "", values.email);
-        if (response) {
-            toast({
-                position: "top-right",
-                title: 'Đăng ký thành công',
-                status: 'success',
-                duration: 9000,
-                isClosable: true,
-            })
-            push('/auth/signin');
+        try {
+            const response = await SignUpAPI(values.username, values.password, "", values.email);
+            if (response.ok) {
+                toast({
+                    position: "top-right",
+                    title: 'Đăng ký thành công',
+                    status: 'success',
+                    duration: 9000,
+                    isClosable: true,
+                })
+                push("/auth/signin")
+            } else {
+                if (response.status === 400) {
+                    const errorData = await response.json();
+                    if (errorData?.exception === 'USERNAME_EXIST') {
+                        toast({
+                            position: "top-right",
+                            title: 'Tên đăng nhập đã tồn tại',
+                            status: 'error',
+                            duration: 9000,
+                            isClosable: true,
+                        })
+                    }
+                }
+            }
+        } catch (e) {
+            console.log(e)
         }
         actions.setSubmitting(false)
     }
-    const validateRePassword = (value) => {
-        console.log(value)
+    const validateRePassword = (values) => {
+        let error = "";
+        const { password, rePassword } = values;
+        if (password && rePassword && password !== rePassword) {
+            error = "Không khớp mật khẩu đã nhập ở trên";
+        }
+        return error;
     }
     useEffect(() => {
 
@@ -71,11 +95,11 @@ const SignUp = (session) => {
                                 name: "",
                                 email: "",
                                 password: "",
-                                rePassword: false
+                                rePassword: ""
                             }}
-                            onSubmit={handleRegisSubmit}
+                            onSubmit={(values, actions)=>handleRegisSubmit(values,actions)}
                         >
-                            {(props) => (
+                            {({ values, errors, touched,isSubmitting }) => (
                                 <Form>
                                     <Field name="username">
                                         {({field, form}) => (
@@ -88,7 +112,7 @@ const SignUp = (session) => {
                                     <Field name="email">
                                         {({field, form}) => (
                                             <FormControl id="email" isRequired>
-                                                <FormLabel>Email address</FormLabel>
+                                                <FormLabel>Email</FormLabel>
                                                 <Input {...field} type="email"/>
                                             </FormControl>
                                         )}
@@ -96,7 +120,7 @@ const SignUp = (session) => {
                                     <Field name="password">
                                         {({field, form}) => (
                                             <FormControl id="password" isRequired>
-                                                <FormLabel>Password</FormLabel>
+                                                <FormLabel>Mật khẩu</FormLabel>
                                                 <InputGroup>
                                                     <Input {...field} type={showPassword ? 'text' : 'password'}/>
                                                     <InputRightElement h={'full'}>
@@ -112,13 +136,12 @@ const SignUp = (session) => {
                                             </FormControl>
                                         )}
                                     </Field>
-                                    <Field name="rePassword">
+                                    <Field name="rePassword" validate={value=>validateRePassword(values)}>
                                         {({field, form}) => (
                                             <FormControl id="rePassword" isRequired isInvalid={form.errors.rePassword}>
-                                                <FormLabel>Re-Password</FormLabel>
+                                                <FormLabel>Nhập lại mật khẩu</FormLabel>
                                                 <InputGroup>
                                                     <Input {...field} type={showPassword ? 'text' : 'password'}/>
-                                                    <FormErrorMessage>{form.errors.rePassword}</FormErrorMessage>
                                                     <InputRightElement h={'full'}>
                                                         <Button
                                                             variant={'ghost'}
@@ -129,6 +152,7 @@ const SignUp = (session) => {
                                                         </Button>
                                                     </InputRightElement>
                                                 </InputGroup>
+                                                <FormErrorMessage>{form.errors.rePassword}</FormErrorMessage>
                                             </FormControl>
                                         )}
 
@@ -136,7 +160,7 @@ const SignUp = (session) => {
 
                                     <Stack spacing={10} pt={2}>
                                         <Button
-                                            isLoading={props.isSubmitting}
+                                            isLoading={isSubmitting}
                                             loadingText="Submitting"
                                             size="lg"
                                             bg={'blue.400'}
@@ -150,9 +174,9 @@ const SignUp = (session) => {
                                     </Stack>
                                     <Stack pt={6}>
                                         <Text align={'center'}>
-                                            Already a user? <Link
+                                            Bạn đã có tài khoản ? <Link
                                             href={"/auth/signin"}
-                                            color={'blue.400'}>Login</Link>
+                                            color={'blue.400'}>Đăng nhập</Link>
                                         </Text>
                                     </Stack>
                                 </Form>
