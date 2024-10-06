@@ -129,7 +129,7 @@ export default function SurveySubmit({ params }) {
                               {({ field, form }) => (
                                 <FormControl as='fieldset'>
                                   <FormLabel as='legend'>
-                                    Bạn chọn ưu tiên mẫu nào ?
+                                    Hãy chọn 1 mẫu
                                   </FormLabel>
                                   <RadioGroup defaultValue='Itachi'>
                                     <HStack spacing='24px'>

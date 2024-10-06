@@ -10,6 +10,7 @@ const LoginAPI = async (username:any,password:any) => {
         body: JSON.stringify({username:username,password:password})
        
     })
+    console.log(res)
     return res.json();
 }
 export default LoginAPI

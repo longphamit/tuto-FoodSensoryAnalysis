@@ -6,9 +6,22 @@
   <component name="ChangeListManager">
     <list default="true" id="bc80d296-27e5-4a47-8d68-5c2896d32bac" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/api/SignUpAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/api/SignUpAPI.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/auth/signup/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/auth/signup/page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/api/LoginAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/api/LoginAPI.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/api/fetch_data.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/api/fetch_data.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/auth/signin/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/auth/signin/page.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/constant/Constant.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/constant/Constant.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/portal/(DashboardLayout)/components/SplitButtonCreateQuiz.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/portal/(DashboardLayout)/components/SplitButtonCreateQuiz.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/portal/(DashboardLayout)/layout/sidebar/MenuItems.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/portal/(DashboardLayout)/layout/sidebar/MenuItems.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/portal/(DashboardLayout)/layout/sidebar/NavItem/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/portal/(DashboardLayout)/layout/sidebar/NavItem/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/portal/(DashboardLayout)/layout/sidebar/SidebarItems.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/portal/(DashboardLayout)/layout/sidebar/SidebarItems.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/portal/(DashboardLayout)/pages/quizs/detail/[id]/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/portal/(DashboardLayout)/pages/quizs/detail/[id]/page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/portal/(DashboardLayout)/pages/quizs/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/portal/(DashboardLayout)/pages/quizs/page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/portal/(DashboardLayout)/pages/quizs/result/survey/[id]/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/portal/(DashboardLayout)/pages/quizs/result/survey/[id]/page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/service/party_service.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/service/party_service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/service/quiz_service.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/service/quiz_service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/survey/result/[submitId]/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/survey/result/[submitId]/page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/survey/submit/[submitId]/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/survey/submit/[submitId]/page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/middleware.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/middleware.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,11 +67,11 @@
       <recent name="$PROJECT_DIR$/src/app/portal" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/app/portal/(DashboardLayout)/pages/quizs/result/survey/[id]/submit/[id]" />
       <recent name="$PROJECT_DIR$/src/app/portal/(DashboardLayout)/pages/quizs/result/survey" />
       <recent name="$PROJECT_DIR$/src/app/portal/(DashboardLayout)/pages/quizs/result" />
       <recent name="$PROJECT_DIR$/src/app/portal/(DashboardLayout)/pages/quizs/result/survey-pair" />
       <recent name="$PROJECT_DIR$/src/app/portal/(DashboardLayout)/pages/quizs/detail/[id]" />
-      <recent name="$PROJECT_DIR$/src/app/portal/(DashboardLayout)/pages/quizs/detail" />
     </key>
   </component>
   <component name="RunManager">
@@ -91,6 +104,11 @@
       <workItem from="1713549279772" duration="5390000" />
       <workItem from="1713583164749" duration="7929000" />
       <workItem from="1714278260841" duration="623000" />
+      <workItem from="1726308390922" duration="30000" />
+      <workItem from="1728089840135" duration="609000" />
+      <workItem from="1728094743317" duration="9000" />
+      <workItem from="1728098133972" duration="1675000" />
+      <workItem from="1728201247081" duration="13535000" />
     </task>
     <servers />
   </component>

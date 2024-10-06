@@ -1,10 +1,10 @@
 'use client'
 import {useEffect, useMemo, useState} from "react";
 import {
-    getQuestionForPairSurveyGenerate,
+    getQuestionForSurveyGenerate,
     getQuizById,
     getQuizSubjects,
-    getQuizSubmits, getSurveyGenerate,
+    getQuizSubmits, getSubjectCodeGenerate, getSurveyGenerate,
     updateQuizBaseData
 } from "../../../../../../service/quiz_service";
 import 'react-quill/dist/quill.snow.css';
@@ -27,6 +27,7 @@ import {Field, Form, Formik} from "formik";
 import {FormControl, FormErrorMessage, FormLabel, Input, useToast} from "@chakra-ui/react";
 import ButtonCreateQuizSubject from "../../../../components/ButtonCreateQuizSubject";
 import {useRouter} from "next/navigation";
+import {PROCESS_TYPE_3AFC, PROCESS_TYPE_PAIR, PROCESS_TYPE_TRIANGLE} from "../../../../../../constant/Constant";
 
 
 const QuizDetail = ({params}) => {
@@ -37,6 +38,7 @@ const QuizDetail = ({params}) => {
     const toast = useToast()
     const [loadingGenerateQuestion, setLoadingGenerateQuestion] = useState(false)
     const [loadingGenerateSurveyForm, setLoadingGenerateSurveyForm] = useState(false)
+    const [loadingGenerateCodeSubject, setLoadingGenerateCodeSubject] = useState(false)
     const router = useRouter();
     const getQuizDetailData = async () => {
         const resQuiz = await getQuizById(params.id)
@@ -60,6 +62,28 @@ const QuizDetail = ({params}) => {
 
     }
     const updateQuizData = async (values, actions) => {
+        if (values?.participantsLimit > 0) {
+            if (values?.participantsLimit % 2 !== 0) {
+                toast({
+                    position: "top-right",
+                    title: 'Số lượng người tham gia phải là số chẵn',
+                    status: 'error',
+                    isClosable: true,
+                })
+                return
+            }
+            if (quiz.processType === PROCESS_TYPE_3AFC || quiz.processType === PROCESS_TYPE_TRIANGLE) {
+                if (values?.participantsLimit % 3 !== 0) {
+                    toast({
+                        position: "top-right",
+                        title: 'Số lượng người tham gia phải chia hết cho 3',
+                        status: 'error',
+                        isClosable: true,
+                    })
+                    return
+                }
+            }
+        }
         await updateQuizBaseData(quiz.id, values.name, values.guide, values.participantsLimit)
         const res = await getQuizById(quiz.id)
         setQuiz(res)
@@ -67,27 +91,43 @@ const QuizDetail = ({params}) => {
             position: "top-right",
             title: 'Cập nhật thành công',
             status: 'success',
-            duration: 9000,
             isClosable: true,
         })
         actions.setSubmitting(false)
 
     }
-    const generateQuestionForPairSurvey = async () => {
-        setLoadingGenerateQuestion(true)
-        const res = await getQuestionForPairSurveyGenerate(quiz.id)
-        setQuiz(res)
-        setLoadingGenerateQuestion(false)
-        toast({
-            position: "top-right",
-            title: 'Tạo thành công',
-            status: 'success',
-            duration: 9000,
-            isClosable: true,
-        })
+    const generateQuestionForSurvey = async () => {
+        if(!quizSubjects?.length>0){
+            toast({
+                position: "top-right",
+                title: 'Chưa có thông tin mã hoá mẫu vật',
+                status: 'error',
+                isClosable: true,
+            })
+            return
+        }
+        // setLoadingGenerateQuestion(true)
+        // const res = await getQuestionForSurveyGenerate(quiz.id)
+        // setQuiz(res)
+        // setLoadingGenerateQuestion(false)
+        // toast({
+        //     position: "top-right",
+        //     title: 'Tạo thành công',
+        //     status: 'success',
+        //     isClosable: true,
+        // })
 
     }
     const generateSurvey = async () => {
+        if(!quiz?.questionTemplates){
+            toast({
+                position: "top-right",
+                title: 'Chưa có câu hỏi',
+                status: 'error',
+                isClosable: true,
+            })
+            return;
+        }
         setLoadingGenerateSurveyForm(true)
         const res = await getSurveyGenerate(quiz.id)
         setQuizSubmits(res)
@@ -96,7 +136,6 @@ const QuizDetail = ({params}) => {
             position: "top-right",
             title: 'Tạo thành công',
             status: 'success',
-            duration: 9000,
             isClosable: true,
         })
     }
@@ -105,6 +144,21 @@ const QuizDetail = ({params}) => {
     useEffect(() => {
         getQuizDetailData()
     }, []);
+
+    const generateQuizSubjectCode = async (quizId, quizSubjectId) => {
+        setLoadingGenerateCodeSubject(true)
+        await getSubjectCodeGenerate(quizId, quizSubjectId)
+        const quizSubjects = await getQuizSubjects(quizId)
+        setQuizSubjects(quizSubjects)
+        setLoadingGenerateCodeSubject(false)
+        toast({
+            position: "top-right",
+            title: 'Mã hoá thành công',
+            status: 'success',
+            duration: 9000,
+            isClosable: true,
+        })
+    }
     return (
         <>
             <div>
@@ -121,7 +175,9 @@ const QuizDetail = ({params}) => {
                             {(props) => (
                                 <Form>
                                     <DashboardCard title={`Thông tin khảo sát - ${
-                                        quiz.processType == 'PAIR' ? 'Ưu tiên cặp đôi' : <></>
+                                        quiz.processType == PROCESS_TYPE_PAIR ? 'Phép thử ưu tiên cặp đôi'
+                                            : quiz.processType == PROCESS_TYPE_TRIANGLE ? 'Phép thử tam giác'
+                                                : quiz.processType == PROCESS_TYPE_3AFC ? 'Phép thử 3AFC' : <></>
                                     }`}
                                                    action={<Button
                                                        onClick={() => router.push(`/portal/pages/quizs/result/survey/${quiz.id}`)}
@@ -181,73 +237,82 @@ const QuizDetail = ({params}) => {
                                        action={quiz?.quizSubjectIds?.length > 1 ? <></> : <ButtonCreateQuizSubject
                                            callback={getQuizDetailData}
                                            quizId={quiz.id}/>}>
-                            <Table>
-                                <TableHead>
-                                    <TableRow>
-                                        <TableCell>
-                                            <Typography variant="subtitle2" fontWeight={600}>
-                                                Tên
-                                            </Typography>
-                                        </TableCell>
-                                        <TableCell>
-                                            <Typography variant="subtitle2" fontWeight={600}>
-                                                Ký tự
-                                            </Typography>
-                                        </TableCell>
-                                        <TableCell>
-                                            <Typography variant="subtitle2" fontWeight={600}>
-                                                Mã hóa
-                                            </Typography>
-                                        </TableCell>
-                                        <TableCell></TableCell>
-                                    </TableRow>
-                                </TableHead>
-                                <TableBody>
-                                    {quizSubjects?.map((quizSubject) => (
-                                        <TableRow key={quizSubject.id}>
-                                            <TableCell>
-                                                <Typography
-                                                    sx={{
-                                                        fontSize: "15px",
-                                                        fontWeight: "500",
-                                                    }}
-                                                >
-                                                    {quizSubject.name}
-                                                </Typography>
-                                            </TableCell>
-                                            <TableCell>
-                                                <Typography
-                                                    sx={{
-                                                        fontSize: "15px",
-                                                        fontWeight: "500",
-                                                    }}
-                                                >
-                                                    {quizSubject.key}
-                                                </Typography>
-                                            </TableCell>
-                                            <TableCell>
-                                                [{
-                                                quizSubject?.codes?.map((code, index) => {
-                                                    return (
-                                                        <>
-                                                            {index == quizSubject?.codes?.length - 1 ? <>{code}</> : <>{code}, </>}
-                                                        </>
-                                                    )
-                                                })
-                                            }]
-                                            </TableCell>
-                                            <TableCell>
-                                                <Button>Mã hóa lại</Button>
-                                            </TableCell>
-                                        </TableRow>
+                            {
+                                loadingGenerateCodeSubject ?
 
-                                    ))}
-                                </TableBody>
-                            </Table>
+                                    <CircularProgress/>
+                                    : <Table>
+                                        <TableHead>
+                                            <TableRow>
+                                                <TableCell>
+                                                    <Typography fontWeight={600}>
+                                                        Tên
+                                                    </Typography>
+                                                </TableCell>
+                                                <TableCell>
+                                                    <Typography fontWeight={600}>
+                                                        Ký tự
+                                                    </Typography>
+                                                </TableCell>
+                                                <TableCell>
+                                                    <Typography fontWeight={600}>
+                                                        Số lượng mã hoá
+                                                    </Typography>
+                                                </TableCell>
+                                                <TableCell width='30%'>
+                                                    <Typography fontWeight={600}>
+                                                        Mã hóa
+                                                    </Typography>
+                                                </TableCell>
+                                                <TableCell></TableCell>
+                                            </TableRow>
+                                        </TableHead>
+                                        <TableBody>
+                                            {quizSubjects?.map((quizSubject) => (
+                                                <TableRow key={quizSubject.id}>
+                                                    <TableCell>
+                                                        <Typography>
+                                                            {quizSubject.name}
+                                                        </Typography>
+                                                    </TableCell>
+                                                    <TableCell>
+                                                        <Typography>
+                                                            {quizSubject.key}
+                                                        </Typography>
+                                                    </TableCell>
+                                                    <TableCell>
+                                                        <Typography>
+                                                            {quizSubject?.codes?.length}
+                                                        </Typography>
+                                                    </TableCell>
+                                                    <TableCell>
+                                                        [{
+                                                        quizSubject?.codes?.map((code, index) => {
+                                                            return (
+                                                                <>
+                                                                    {index == quizSubject?.codes?.length - 1 ? <>{code}</> : <>{code}, </>}
+                                                                </>
+                                                            )
+                                                        })
+                                                    }]
+                                                    </TableCell>
+                                                    <TableCell>
+                                                        <Button
+                                                            onClick={() => {
+                                                                generateQuizSubjectCode(quiz?.id, quizSubject?.id)
+                                                            }}
+                                                        >Mã hóa lại</Button>
+                                                    </TableCell>
+                                                </TableRow>
+
+                                            ))}
+                                        </TableBody>
+                                    </Table>
+                            }
                         </DashboardCard>
                         <div style={{marginTop: 10}}>
                             <DashboardCard title="Câu hỏi" action={<Button variant="contained" onClick={() => {
-                                generateQuestionForPairSurvey()
+                                generateQuestionForSurvey()
                             }}>Tạo câu hỏi</Button>}>
                                 <Table>
                                     <TableHead>

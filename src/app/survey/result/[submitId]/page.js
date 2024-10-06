@@ -99,7 +99,7 @@ export default function SurveyResult({params}) {
                                         <CardBody>
                                             <FormControl as='fieldset'>
                                                 <FormLabel as='legend'>
-                                                    Bạn chọn ưu tiên mẫu nào ?
+                                                    Hãy chọn 1 mẫu
                                                 </FormLabel>
                                                 <RadioGroup defaultValue='Itachi'
                                                             style={{opacity:"unset"}}

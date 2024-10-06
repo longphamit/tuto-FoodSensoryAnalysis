@@ -29,7 +29,6 @@ const Quizs = () => {
     const getQuizList = async () => {
         setLoading(true)
         const res = await getQuizsCreatedBy()
-        console.log(res)
         if (res) {
             setQuizs(res.reverse())
         }

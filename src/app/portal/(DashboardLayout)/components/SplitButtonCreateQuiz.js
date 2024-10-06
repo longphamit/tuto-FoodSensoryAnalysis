@@ -10,13 +10,16 @@ import MenuItem from '@mui/material/MenuItem';
 import MenuList from '@mui/material/MenuList';
 import {getQuizGenerate} from "../../../service/quiz_service";
 import {useRouter} from "next/navigation";
+import {PROCESS_TYPE_3AFC, PROCESS_TYPE_PAIR, PROCESS_TYPE_TRIANGLE} from "../../../constant/Constant";
 
 const options = [
-    {name:'phép thử ưu tiên cặp đôi',value:'PAIR'},
-    {name:'phép thử tam giác',value: 'TRIANGLE'}];
+    {name: 'phép thử ưu tiên cặp đôi', value: PROCESS_TYPE_PAIR},
+    {name: 'phép thử tam giác', value: PROCESS_TYPE_TRIANGLE},
+    {name: 'phép thử 3AFC', value: PROCESS_TYPE_3AFC},
+];
 
 export default function SplitButtonCreateQuiz() {
-    const router=useRouter();
+    const router = useRouter();
     const [open, setOpen] = React.useState(false);
     const anchorRef = React.useRef(null);
     const [selectedIndex, setSelectedIndex] = React.useState(0);
@@ -28,7 +31,7 @@ export default function SplitButtonCreateQuiz() {
     const handleMenuItemClick = async (event, index) => {
         setSelectedIndex(index);
         setOpen(false);
-        const res=await getQuizGenerate(options[index].value)
+        const res = await getQuizGenerate(options[index].value)
         router.push(`/portal/pages/quizs/detail/${res.id}`)
     };
 
@@ -60,7 +63,7 @@ export default function SplitButtonCreateQuiz() {
                     aria-haspopup="menu"
                     onClick={handleToggle}
                 >
-                    <ArrowDropDownIcon />
+                    <ArrowDropDownIcon/>
                 </Button>
             </ButtonGroup>
             <Popper
@@ -73,7 +76,7 @@ export default function SplitButtonCreateQuiz() {
                 transition
                 disablePortal
             >
-                {({ TransitionProps, placement }) => (
+                {({TransitionProps, placement}) => (
                     <Grow
                         {...TransitionProps}
                         style={{
@@ -87,7 +90,6 @@ export default function SplitButtonCreateQuiz() {
                                     {options.map((option, index) => (
                                         <MenuItem
                                             key={option.value}
-                                            disabled={index === 2}
                                             selected={index === selectedIndex}
                                             onClick={(event) => handleMenuItemClick(event, index)}
                                         >

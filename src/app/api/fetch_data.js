@@ -24,7 +24,11 @@ export const GET_AUTH = async (url) => {
         }
 
     });
-    return response.json(); // assuming response is JSON
+    if(response.ok){
+        // assuming response is JSON
+        return response?.json();
+    }
+
 }
 export const PUT_AUTH = async (url,data) => {
     const session = await getSession();

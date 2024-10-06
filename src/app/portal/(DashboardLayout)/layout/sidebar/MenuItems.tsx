@@ -25,6 +25,13 @@ const Menuitems = [
     href: "/portal/pages/quizs",
   },
   {
+    id: uniqueId(),
+    title: "Quản lý tài khoản",
+    icon: IconStack,
+    authorities:["ROLE_ADMIN"],
+    href: "/portal/pages/accounts",
+  },
+  {
     navlabel: true,
     subheader: "Auth",
   },

@@ -15,6 +15,7 @@ const SignIn = (session) => {
     const [userInfo, setUserInfo] = useState({email: "", password: ""});
     const handleSubmit = async () => {
         setLoading(true)
+        console.log(userInfo)
         const response = await signIn("credentials", {
             username: userInfo.email,
             password: userInfo.password,
@@ -22,12 +23,12 @@ const SignIn = (session) => {
         });
 
         setLoading(false)
+        console.log(response)
         if (response.ok) {
             toast({
                 position: "top-right",
                 title: 'Đăng nhập thành công',
                 status: 'success',
-                duration: 9000,
                 isClosable: true,
             })
             push('/portal');
@@ -37,7 +38,6 @@ const SignIn = (session) => {
                 title: 'Thông tin đăng nhập không đúng',
                 description: "Vui lòng thử lại",
                 status: 'error',
-                duration: 9000,
                 isClosable: true,
             })
         }
@@ -103,9 +103,9 @@ const SignIn = (session) => {
                                     </div>
 
                                     <div>
-                                        <Button
-                                            style={{width: "100%"}}
-                                            onClick={() => handleSignUp()}>Đăng ký</Button>
+                                        {/*<Button*/}
+                                        {/*    style={{width: "100%"}}*/}
+                                        {/*    onClick={() => handleSignUp()}>Đăng ký</Button>*/}
                                     </div>
                                 </Stack>
                             </Card>
