@@ -53,7 +53,7 @@ export const createQuizSubject = async (quizId, name, key) => {
         , JSON.stringify({name: name, key: key})))
 }
 export const getQuestionForSurveyGenerate = async (quizId) => {
-    return (await GET_AUTH(`http://localhost:8099/tuto-backend/quiz-api/quiz/${quizId}/question/generate`))
+    return (await GET_AUTH(`${BE_GATEWAY}/tuto-backend/quiz-api/quiz/${quizId}/question/generate`))
 }
 export const getSurveyGenerate = async (quizId) => {
     return (await GET_AUTH(`${BE_GATEWAY}/tuto-backend/quiz-api/quiz/${quizId}/survey/generate`))
