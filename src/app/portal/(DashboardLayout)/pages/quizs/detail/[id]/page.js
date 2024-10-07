@@ -73,10 +73,10 @@ const QuizDetail = ({params}) => {
                 return
             }
             if (quiz.processType === PROCESS_TYPE_3AFC || quiz.processType === PROCESS_TYPE_TRIANGLE) {
-                if (values?.participantsLimit % 3 !== 0) {
+                if (values?.participantsLimit % 6 !== 0) {
                     toast({
                         position: "top-right",
-                        title: 'Số lượng người tham gia phải chia hết cho 3',
+                        title: 'Số lượng người tham gia phải chia hết cho 6',
                         status: 'error',
                         isClosable: true,
                     })
