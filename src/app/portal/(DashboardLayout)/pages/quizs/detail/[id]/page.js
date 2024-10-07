@@ -106,16 +106,16 @@ const QuizDetail = ({params}) => {
             })
             return
         }
-        // setLoadingGenerateQuestion(true)
-        // const res = await getQuestionForSurveyGenerate(quiz.id)
-        // setQuiz(res)
-        // setLoadingGenerateQuestion(false)
-        // toast({
-        //     position: "top-right",
-        //     title: 'Tạo thành công',
-        //     status: 'success',
-        //     isClosable: true,
-        // })
+        setLoadingGenerateQuestion(true)
+        const res = await getQuestionForSurveyGenerate(quiz.id)
+        setQuiz(res)
+        setLoadingGenerateQuestion(false)
+        toast({
+            position: "top-right",
+            title: 'Tạo thành công',
+            status: 'success',
+            isClosable: true,
+        })
 
     }
     const generateSurvey = async () => {
