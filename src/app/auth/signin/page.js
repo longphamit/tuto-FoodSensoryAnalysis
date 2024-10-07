@@ -54,71 +54,63 @@ const SignIn = (session) => {
         console.log(session)
     }, []);
     return (
-        <div className="sign-in-form">
-            <Grid
-                h='100vh'
-                templateRows='repeat(2, 1fr)'
-                templateColumns='repeat(5, 1fr)'
-                gap={4}
-            >
-                <GridItem rowSpan={2} colSpan={2}>
+        <div className="background-login-div">
+            <style jsx>{`
+                .background-login-div {
+                    background-image: url('/images/sensory_evaluation.jpg');
+                    background-size: cover;
+                    background-position: center;
+                    height: 100vh;
+                    width: 100%;
+                }
+            `}</style>
+            <Flex width={"100%"} height={"100%"} alignContent={"center"} justifyContent={"center"}>
+                <Center>
+                    <Card padding={10} width={["100%", "100%", "600px"]} maxWidth="600px" height="auto">
+                        <Stack>
+                            <div style={{marginBottom: 100}}>
+                                <h1 style={{fontWeight: "bold"}}> Đánh giá cảm quan </h1>
+                            </div>
+                            <div>
+                                <Center>
+                                    {
+                                        loading ? <Spinner/> : <></>
+                                    }
+                                </Center>
+                                <Input
+                                    value={userInfo.email}
+                                    onChange={({target}) =>
+                                        setUserInfo({...userInfo, email: target.value})
+                                    }
 
-                    <Flex width={"100%"} height={"100%"} alignContent={"center"} justifyContent={"center"}>
-                        <Center>
-                            <Card padding={30}>
-                                <Stack>
+                                    placeholder="USER NAME"
+                                />
+                            </div>
+                            <div>
+                                <Input
+                                    value={userInfo.password}
+                                    onChange={({target}) =>
+                                        setUserInfo({...userInfo, password: target.value})
+                                    }
+                                    type="PASSWORD"
+                                    placeholder="********"
+                                />
+                            </div>
+                            <div>
+                                <Button
+                                    style={{width: "100%"}}
+                                    colorScheme='teal' onClick={() => handleSubmit()}>Đăng nhập</Button>
+                            </div>
 
-                                    <div style={{marginBottom: 100}}>
-                                        <h1 style={{fontWeight: "bold"}}> Đánh giá cảm quan </h1>
-                                    </div>
-                                    <div>
-                                        <Center>
-                                            {
-                                                loading ? <Spinner/> : <></>
-                                            }
-                                        </Center>
-                                        <Input
-                                            value={userInfo.email}
-                                            onChange={({target}) =>
-                                                setUserInfo({...userInfo, email: target.value})
-                                            }
-
-                                            placeholder="USER NAME"
-                                        />
-                                    </div>
-                                    <div>
-                                        <Input
-                                            value={userInfo.password}
-                                            onChange={({target}) =>
-                                                setUserInfo({...userInfo, password: target.value})
-                                            }
-                                            type="PASSWORD"
-                                            placeholder="********"
-                                        />
-                                    </div>
-                                    <div>
-                                        <Button
-                                            style={{width: "100%"}}
-                                            colorScheme='teal' onClick={() => handleSubmit()}>Đăng nhập</Button>
-                                    </div>
-
-                                    <div>
-                                        {/*<Button*/}
-                                        {/*    style={{width: "100%"}}*/}
-                                        {/*    onClick={() => handleSignUp()}>Đăng ký</Button>*/}
-                                    </div>
-                                </Stack>
-                            </Card>
-                        </Center>
-                    </Flex>
-                </GridItem>
-                <GridItem rowSpan={2} colSpan={3} bg='papayawhip'>
-                    <Image src={"/images/sensory_evaluation.jpg"}
-                           height={'100%'}
-                           alt={"login_banner"}/>
-                </GridItem>
-
-            </Grid>
+                            <div>
+                                {/*<Button*/}
+                                {/*    style={{width: "100%"}}*/}
+                                {/*    onClick={() => handleSignUp()}>Đăng ký</Button>*/}
+                            </div>
+                        </Stack>
+                    </Card>
+                </Center>
+            </Flex>
 
 
         </div>
