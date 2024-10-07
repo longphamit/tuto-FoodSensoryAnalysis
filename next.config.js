@@ -6,6 +6,7 @@ const nextConfig = {
         NEXTAUTH_SECRET:"abc"
     },
     reactStrictMode:"false",
+    swcMinify: true,
     output: "standalone",
 }
 
