@@ -33,7 +33,9 @@ const SurveyResult = ({params}) => {
     const [resQuizQuestionTemplateMap, setResQuizQuestionTemplateMap] = useState(new Map())
     const [resQuizSubjectsCodeMap, setResQuizSubjectsCodeMap] = useState(new Map())
     const [countResultSubjectsPair, setCountResultSubjectPair] = useState()
+    const [countResultTotal,setCountResultTotal]= useState(0)
     const router = useRouter();
+
     const getQuizDetailData = async () => {
         setLoading(true)
         const resQuiz = await getQuizById(params.id)
@@ -42,11 +44,14 @@ const SurveyResult = ({params}) => {
         const resSubmitParties = await getSubmitParties(resQuiz.id)
         const resCountResultSubjectsPair = await getCountResultSubjectPair(resQuiz.id)
         const pieChartData = []
+        let totalResult=0
         resCountResultSubjectsPair?.map(e => {
+            totalResult += e.count;
             pieChartData.push({"value": e.count, "label": e.subjectName})
         });
+        setCountResultTotal(totalResult)
         setResSubmitPartiesMap(new Map([...resSubmitParties?.map(party => [party.id, party])]));
-        if(resQuiz?.questionTemplates?.length>0){
+        if (resQuiz?.questionTemplates?.length > 0) {
             setResQuizQuestionTemplateMap(new Map([...resQuiz?.questionTemplates?.map(e => [e.id, e])]));
         }
 
@@ -74,7 +79,7 @@ const SurveyResult = ({params}) => {
             {
                 quiz ? <div>
                     <Box>
-                        <h1 style={{fontWeight:"bold"}}>{quiz.name}</h1>
+                        <h1 style={{fontWeight: "bold"}}>{quiz.name}</h1>
                     </Box>
                     <Box>
                         <Grid
@@ -90,7 +95,7 @@ const SurveyResult = ({params}) => {
                                                 Số người thực hiện
                                             </Typography>
                                             <Typography variant="h5" component="div">
-                                                {quizSubmits?.length} / {quiz.participantsLimit}
+                                                {countResultTotal} / {quiz.participantsLimit}
                                             </Typography>
                                         </CardContent>
                                     </Card>
@@ -125,7 +130,7 @@ const SurveyResult = ({params}) => {
                     {/*    values={countResultSubjectsPair}*/}
                     {/*/>*/}
 
-                    <Box style={{marginTop:20}}>
+                    <Box style={{marginTop: 20}}>
                         <Table>
                             <TableHead>
                                 <TableRow>
