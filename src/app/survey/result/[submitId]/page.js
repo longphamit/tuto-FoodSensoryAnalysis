@@ -25,6 +25,7 @@ import {useState} from "react";
 import {Spinner} from '@chakra-ui/react'
 import {getPartyId} from "../../../service/party_service";
 import {getQuizById, getQuizQuestionTemplateById, getQuizSubmitResultById} from "../../../service/quiz_service";
+import {PROCESS_TYPE_3AFC, PROCESS_TYPE_PAIR, PROCESS_TYPE_TRIANGLE} from "../../../constant/Constant";
 
 export default function SurveyResult({params}) {
     const [quizSubmit, setQuizSubmit] = useState();
@@ -83,7 +84,10 @@ export default function SurveyResult({params}) {
                                         <CardHeader>
                                             <Heading size='md'>Phiếu khảo sát</Heading>
                                             <Text style={{fontSize: 13}}>{moment(date).format("DD/MM/YYYY HH:mm") + ''}</Text>
-                                            <Text>{quiz?.processType === 'PAIR' ? 'PHÉP THỬ ƯU TIÊN CẶP ĐÔI' : ''}</Text>
+                                            <Text>{quiz?.processType === PROCESS_TYPE_PAIR ? 'PHÉP THỬ ƯU TIÊN CẶP ĐÔI'
+                                                : quiz?.processType === PROCESS_TYPE_TRIANGLE ? 'PHÉP THỬ TAM GIÁC'
+                                                    : quiz?.processType === PROCESS_TYPE_3AFC ? 'PHÉP THỬ 3AFC' : ''
+                                            }</Text>
                                         </CardHeader>
                                         <CardBody>
                                             <Input style={{color:"black",opacity:"unset"}} value={partySubmit?.name} disabled={true} placeholder='name'/>
