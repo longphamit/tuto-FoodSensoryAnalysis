@@ -30,7 +30,13 @@ import {redirect, useRouter} from "next/navigation";
 import {useEffect} from "react";
 import {useState} from "react";
 import {Spinner} from '@chakra-ui/react'
-import {getQuizById, getQuizQuestionTemplateById, getQuizSubmitById, submitQuiz} from "../../../service/quiz_service";
+import {
+    getQuizById,
+    getQuizGuideByQuizIdAndSurveyIndex,
+    getQuizQuestionTemplateById,
+    getQuizSubmitById,
+    submitQuiz
+} from "../../../service/quiz_service";
 import {PROCESS_TYPE_3AFC, PROCESS_TYPE_PAIR, PROCESS_TYPE_TRIANGLE} from "../../../constant/Constant";
 
 export default function SurveySubmit({params}) {
@@ -41,6 +47,7 @@ export default function SurveySubmit({params}) {
     const [questionTemplate, setQuestionTemplate] = useState();
     const [date, setDate] = useState(new Date())
     const router = useRouter();
+    const [quizGuide,setQuizGuide]=useState()
     const validateName = (value) => {
         let error
         if (!value) {
@@ -78,10 +85,11 @@ export default function SurveySubmit({params}) {
             if (quizSubmitData) {
                 const quizData = await getQuizById(quizSubmitData.quizId);
                 const questionTemplateData = await getQuizQuestionTemplateById(quizSubmitData.quizId, quizSubmitData.questionAnswerSubmits[0].questionTemplateId);
+                const quizGuide=await getQuizGuideByQuizIdAndSurveyIndex(quizData.id,quizSubmitData.index)
                 setQuizSubmit(quizSubmitData)
                 setQuiz(quizData)
                 setQuestionTemplate(questionTemplateData)
-                console.log(questionTemplateData)
+                setQuizGuide(quizGuide)
                 setLoading(false)
             }
 
@@ -149,7 +157,7 @@ export default function SurveySubmit({params}) {
                                                 </Card>
                                                 <Card style={{marginTop: 10}}>
                                                     <CardBody>
-                                                        <p dangerouslySetInnerHTML={{__html: quiz?.guide}}/>
+                                                        <p dangerouslySetInnerHTML={{__html: quizGuide?quizGuide?.content:quiz?.guide}}/>
                                                     </CardBody>
                                                 </Card>
                                                 <Card style={{marginTop: 10}}>

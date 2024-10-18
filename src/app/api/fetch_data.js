@@ -25,8 +25,13 @@ export const GET_AUTH = async (url) => {
 
     });
     if(response.ok){
-        // assuming response is JSON
-        return response?.json();
+        try{
+            // assuming response is JSON
+            return await response?.json();
+        }catch(e){
+            return null;
+        }
+
     }
 
 }
@@ -37,6 +42,21 @@ export const PUT_AUTH = async (url,data) => {
     const response = await fetch(url, {
         method:"PUT",
         body: data,
+        headers:{
+            ...(session && { Authorization: `Bearer ${token}`,
+                'PartyId':partyId,
+                'Accept': 'application/json',
+                'Content-Type': 'application/json' }),
+        }
+
+    });
+}
+export const DELETE_AUTH = async (url,data) => {
+    const session = await getSession();
+    const token = session.user.token;
+    const partyId=session.user.partyId;
+    const response = await fetch(url, {
+        method:"DELETE",
         headers:{
             ...(session && { Authorization: `Bearer ${token}`,
                 'PartyId':partyId,

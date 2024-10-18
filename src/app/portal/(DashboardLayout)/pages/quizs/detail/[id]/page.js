@@ -1,11 +1,12 @@
 'use client'
 import {useEffect, useMemo, useState} from "react";
 import {
+    createQuizGuide, deleteQuizGuide,
     getQuestionForSurveyGenerate,
-    getQuizById,
+    getQuizById, getQuizGuides,
     getQuizSubjects,
     getQuizSubmits, getSubjectCodeGenerate, getSurveyGenerate,
-    updateQuizBaseData
+    updateQuizBaseData, updateQuizGuideContent, updateQuizGuideEndIndex, updateQuizGuideStartIndex
 } from "../../../../../../service/quiz_service";
 import 'react-quill/dist/quill.snow.css';
 import dynamic from "next/dynamic";
@@ -19,8 +20,10 @@ import {
     TableBody,
     TableCell,
     TableHead,
+    TextField as TextFieldMUI,
     TableRow, Typography
 } from "@mui/material";
+import Divider from '@mui/material/Divider';
 import DashboardCard from "../../../../components/shared/DashboardCard";
 import {PlusOne} from "@mui/icons-material";
 import {Field, Form, Formik} from "formik";
@@ -39,26 +42,18 @@ const QuizDetail = ({params}) => {
     const [loadingGenerateQuestion, setLoadingGenerateQuestion] = useState(false)
     const [loadingGenerateSurveyForm, setLoadingGenerateSurveyForm] = useState(false)
     const [loadingGenerateCodeSubject, setLoadingGenerateCodeSubject] = useState(false)
+    const [guides, setGuides] = useState();
     const router = useRouter();
     const getQuizDetailData = async () => {
         const resQuiz = await getQuizById(params.id)
         const resQuizSubjects = await getQuizSubjects(resQuiz.id)
         const resQuizSubmits = await getQuizSubmits(resQuiz.id)
+
         setQuiz(resQuiz)
         setQuizSubjects(resQuizSubjects)
         setQuizSubmits(resQuizSubmits)
-    }
-    const getQuestionData = async () => {
 
-    }
-    const createQuizSubjectData = async () => {
-
-    }
-
-    const createQuestionData = async () => {
-
-    }
-    const updateParticipantLimits = async () => {
+        getQuizGuide(resQuiz.id)
 
     }
     const updateQuizData = async (values, actions) => {
@@ -97,7 +92,7 @@ const QuizDetail = ({params}) => {
 
     }
     const generateQuestionForSurvey = async () => {
-        if(!quizSubjects?.length>0){
+        if (!quizSubjects?.length > 0) {
             toast({
                 position: "top-right",
                 title: 'Chưa có thông tin mã hoá mẫu vật',
@@ -119,7 +114,7 @@ const QuizDetail = ({params}) => {
 
     }
     const generateSurvey = async () => {
-        if(!quiz?.questionTemplates){
+        if (!quiz?.questionTemplates) {
             toast({
                 position: "top-right",
                 title: 'Chưa có câu hỏi',
@@ -143,6 +138,7 @@ const QuizDetail = ({params}) => {
 
     useEffect(() => {
         getQuizDetailData()
+
     }, []);
 
     const generateQuizSubjectCode = async (quizId, quizSubjectId) => {
@@ -158,6 +154,44 @@ const QuizDetail = ({params}) => {
             duration: 9000,
             isClosable: true,
         })
+    }
+
+
+    const getQuizGuide = async (quizId) => {
+        const resGuides = await getQuizGuides(quizId)
+        setGuides(resGuides)
+    }
+
+    const createGuide = async (quizId) => {
+        await createQuizGuide(quizId)
+        await getQuizGuide(quizId);
+    }
+
+    const updateQuizGuide = async (guide) => {
+        await updateQuizGuideStartIndex(guide.id, guide.startGuideIndex)
+        await updateQuizGuideEndIndex(guide.id, guide.endGuideIndex)
+        await updateQuizGuideContent(guide.id, guide.content)
+        toast({
+            position: "top-right",
+            title: 'Cập nhật thành công',
+            status: 'success',
+            isClosable: true,
+        })
+
+    }
+    const handleChangeGuide = async (index, event) => {
+        const newGuides = [...guides];  // Tạo một bản sao của mảng students
+        newGuides[index][event.target.name] = event.target.value;  // Cập nhật giá trị cho field tương ứng
+        setGuides(newGuides);  // Cập nhật lại state
+    }
+    const handleChangeGuideContent = async (index, newContent) => {
+        const newGuides = [...guides];  // Tạo một bản sao của mảng students
+        newGuides[index]['content'] = newContent;  // Cập nhật giá trị cho field tương ứng
+        setGuides(newGuides);  // Cập nhật lại state
+    }
+    const handleDeleteGuide = async (guideId) => {
+        await deleteQuizGuide(guideId)
+        await getQuizGuide(quiz.id)
     }
     return (
         <>
@@ -228,6 +262,76 @@ const QuizDetail = ({params}) => {
                             )}
                         </Formik>
                         : <CircularProgress/>
+                }
+            </div>
+            <div style={{marginTop: 10}}>
+                {
+                    quiz ? <div>
+                        <DashboardCard title="Hướng dẫn"
+                                       action={<Button variant="contained" onClick={() => createGuide(quiz.id)}>
+                                           Tạo hướng dẫn
+                                       </Button>}>
+                            {
+                                guides?.map((e, index) => {
+                                    return <div style={{marginBottom: 50}}>
+                                        <div style={{textAlign: "right"}}>
+                                            <Button variant={"text"} color="error" onClick={()=>{handleDeleteGuide(e.id)}}>Xoá hướng dẫn</Button>
+                                        </div>
+                                        <Grid container spacing={2}>
+                                            <Grid item xs={4}>
+                                                <div>
+                                                    Áp dụng bài khảo sát
+                                                </div>
+                                                <div>
+                                                    <TextFieldMUI
+                                                        style={{width: "100%"}}
+                                                        label="Từ số thứ tự"
+                                                        type="number"
+                                                        name="startGuideIndex"
+                                                        value={e.startGuideIndex}
+                                                        onChange={(event) => {
+                                                            handleChangeGuide(index, event)
+                                                        }}
+                                                        variant="filled"
+                                                    />
+                                                </div>
+
+                                                <div>
+                                                    <TextFieldMUI
+                                                        style={{width: "100%"}}
+                                                        type="number"
+                                                        label="Đến số thứ tự"
+                                                        name="endGuideIndex"
+                                                        value={e.endGuideIndex}
+                                                        onChange={(event) => {
+                                                            handleChangeGuide(index, event)
+                                                        }}
+                                                        variant="filled"
+                                                    />
+                                                </div>
+                                                <Button variant={"contained"} style={{width: "100%"}}
+                                                        onClick={() => {
+                                                            updateQuizGuide(e)
+                                                        }}
+                                                >Cập nhật</Button>
+                                            </Grid>
+                                            <Grid item xs={8}>
+                                                <div>Nội dung</div>
+                                                <ReactQuill theme="snow" value={e.content}
+                                                            name="content"
+                                                            onChange={(content) => handleChangeGuideContent(index, content)}
+                                                />
+                                            </Grid>
+
+                                        </Grid>
+                                        <div style={{marginTop: 20}}>
+                                            <Divider/>
+                                        </div>
+                                    </div>
+                                })
+                            }
+                        </DashboardCard>
+                    </div> : <></>
                 }
             </div>
             <div style={{marginTop: 10}}>
