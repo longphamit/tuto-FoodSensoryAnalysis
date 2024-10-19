@@ -2,6 +2,17 @@ import {getSession} from "next-auth/react";
 
 export const GET = async (url) => {
     const response = await fetch(url);
+
+    if(response.ok){
+        try{
+            // assuming response is JSON
+            return await response?.json();
+        }catch(e){
+            return null;
+        }
+
+    }
+
     if (!response.ok) {
         return response.json().then(data => {
             if (data && data.exception === 'QUIZ_SUBMITTED') {
@@ -11,7 +22,6 @@ export const GET = async (url) => {
             }
         });
     }
-    return response.json(); // assuming response is JSON
 }
 export const GET_AUTH = async (url) => {
     const session = await getSession();

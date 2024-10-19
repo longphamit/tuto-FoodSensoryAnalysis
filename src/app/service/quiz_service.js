@@ -90,7 +90,7 @@ export const updateQuizGuideContent=async(guideId,content)=>{
         , JSON.stringify({content:content})))
 }
 export const getQuizGuideByQuizIdAndSurveyIndex=async(quizId,surveyIndex)=>{
-    return (await GET_AUTH(`${BE_GATEWAY}/tuto-backend/quiz-api/content/quiz-guide/${quizId}/index/${surveyIndex}`))
+    return await GET(`${BE_HOST}/gateway/content/quiz-guide/${quizId}/index/${surveyIndex}`)
 }
 
 export const deleteQuizGuide=async(guideId)=>{
